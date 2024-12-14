@@ -1,0 +1,95 @@
+.series_title {
+   margin-bottom: 10px;
+   text-align: center;
+}
+
+.series_descr {
+   margin-bottom: 10px;
+   text-align: center;
+}
+
+.select_block {
+   display: flex;
+   gap: 20px;
+}
+
+.custom_seelect {
+   position: relative;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: 8px;
+   width: 250px;
+   border-radius: 8px;
+   cursor: pointer;
+   color: var(--txt-white);
+   background-color: var(--orange);
+}
+
+.custom_seelect:hover,
+.custom_seelect:focus{
+   background: var(--select-hover);
+}
+
+.dropdown_menu {
+   list-style: none;
+   top: 100%;
+   left: 0;
+   width: 100%;
+   background-color: var(--orange);
+   color: var(--txt-white);
+   border-radius: 8px;
+   position: absolute;
+}
+
+.dropdown_menu li {
+   padding: 10px;
+   border-radius: 8px;
+   cursor: pointer;
+}
+
+.dropdown_menu li:hover,
+.dropdown_menu li:focus {
+   background-color: var(--btn-hover);
+}
+
+.btn {
+   padding: 10px;
+   font-size: 14px;
+   border: none;
+   border-radius: 8px;
+   color: var(--txt-white);
+}
+
+.btn:hover,
+.btn:focus {
+   background: var(--btn-hover);
+}
+
+.table_container {
+   margin-top: 20px;
+   color: var(--txt-black);
+   background: var(--white);
+}
+
+.series_table {
+   border-collapse: collapse;
+   width: 100%;
+}
+
+.series_table th {
+   padding: 5px 10px;
+   border: 1px solid var(--table-grey);
+}
+
+.series_table td {
+   text-align: center;
+   padding: 5px 10px;
+   border: 1px solid var(--table-grey);
+}
+
+.series_table td:first-child {
+   padding-left: 10px;
+   padding-right: 10px;
+   text-align: start;
+}
