@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+const apiUrl = process.env.REACT_APP_API_URL;
 
 export const fetchDialogues = createAsyncThunk(
 	'dialogues/fetchDialogues',
@@ -28,7 +29,7 @@ export const fetchDialogues = createAsyncThunk(
 
 		try {
 			const response = await fetch(
-				`/messages/dialogues/${userId}`,
+				`${apiUrl}/messages/dialogues/${userId}`,
 				requestOptions
 			);
 

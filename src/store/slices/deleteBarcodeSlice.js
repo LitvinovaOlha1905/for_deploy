@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+const apiUrl = process.env.REACT_APP_API_URL;
 
 // Асинхронное действие для удаления штрих-кода по ID
 export const deleteBarcode = createAsyncThunk(
@@ -16,7 +17,7 @@ export const deleteBarcode = createAsyncThunk(
 
 		try {
 			const response = await fetch(
-				`/bonus-program/delete-barcode/${id}`,
+				`${apiUrl}/bonus-program/delete-barcode/${id}`,
 				requestOptions
 			);
 

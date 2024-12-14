@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+const apiUrl = process.env.REACT_APP_API_URL;
 
 const initialState = {
 	services: [],
@@ -10,7 +11,7 @@ export const addServiceCentre = createAsyncThunk(
 	"serviceCreation/addServiceCentre",
 	async (newCentre, { rejectWithValue }) => {
 		try {
-			const response = await fetch('/service-centers/add-service', {
+			const response = await fetch(`${apiUrl}/service-centers/add-service`, {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',

@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+const apiUrl = process.env.REACT_APP_API_URL;
 
 const initialState = {
 	data: [],
@@ -21,7 +22,7 @@ export const fetchBarcodes = createAsyncThunk(
 
 		try {
 			const response = await fetch(
-				'/bonus-program/all-barcode',
+				`${apiUrl}/bonus-program/all-barcode`,
 				requestOptions
 			);
 

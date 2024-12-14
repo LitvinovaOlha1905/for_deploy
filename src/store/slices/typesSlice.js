@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+const apiUrl = process.env.REACT_APP_API_URL;
 
 const initialState = {
 	types: [],
@@ -11,7 +12,7 @@ export const fetchAllTypes = createAsyncThunk(
 	"types/fetchAllTypes",
 	async () => {
 		try {
-			const res = await fetch("/types/all");
+			const res = await fetch(`${apiUrl}/types/all`);
 			if (!res.ok) {
 				throw new Error("Failed to fetch types!");
 			}

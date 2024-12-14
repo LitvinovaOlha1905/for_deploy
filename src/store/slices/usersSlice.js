@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+const apiUrl = process.env.REACT_APP_API_URL;
 
 const initialState = {
 	users: [],
@@ -9,7 +10,7 @@ const initialState = {
 
 export const fetchUsers = createAsyncThunk('users/fetchUsers', async () => {
 	try {
-		const response = await fetch('/admin/allUsers?page=0&size=10', {
+		const response = await fetch(`${apiUrl}admin/allUsers?page=0&size=10`, {
 			method: 'GET',
 			redirect: 'follow',
 		});

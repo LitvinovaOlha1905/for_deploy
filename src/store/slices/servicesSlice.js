@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+const apiUrl = process.env.REACT_APP_API_URL;
 
 const initialState = {
 	services: [],
@@ -11,7 +12,7 @@ export const fetchServiceCentres = createAsyncThunk(
 	"services/fetchServiceCentres",
 	async (_, { rejectWithValue }) => {
 		try {
-			const response = await fetch('/service-centers/get-all-service-centers');
+			const response = await fetch(`${apiUrl}/service-centers/get-all-service-centers`);
 			if (!response.ok) {
 				throw new Error("Failed to fetch data");
 			}

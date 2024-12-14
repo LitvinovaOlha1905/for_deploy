@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+const apiUrl = process.env.REACT_APP_API_URL;
 
 const initialState = {
 	data: [],
@@ -11,9 +12,9 @@ export const fetchProductsByTypes = createAsyncThunk(
 	"data/fetchProductsByTypes",
 	async () => {
 		try {
-			const response = await fetch("/types/all-data", {
-				method: "GET",
-				redirect: "follow",
+			const response = await fetch(`${apiUrl}/types/all-data`, {
+				method: 'GET',
+				redirect: 'follow',
 			});
 
 			if (!response.ok) {

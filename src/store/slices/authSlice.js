@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+const apiUrl = process.env.REACT_APP_API_URL;
 
 // Функция для извлечения токенов из куков и их сохранения в localStorage
 const getTokensFromCookies = () => {
@@ -26,7 +27,7 @@ export const fetchUserIdAfterLogin = createAsyncThunk(
 	'auth/fetchUserIdAfterLogin',
 	async ({ email, bearerToken }, { rejectWithValue }) => {
 		try {
-			const response = await fetch('/admin/allUsers?page=0&size=10', {
+			const response = await fetch(`${apiUrl}/admin/allUsers?page=0&size=10`, {
 				method: 'GET',
 				headers: {
 					Authorization: `Bearer ${bearerToken}`,
@@ -57,7 +58,7 @@ export const loginUser = createAsyncThunk(
 	'auth/loginUser',
 	async ({ email, password }, { dispatch, rejectWithValue }) => {
 		try {
-			const response = await fetch('/authentication/login', {
+			const response = await fetch(`${apiUrl}/authentication/login`, {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',

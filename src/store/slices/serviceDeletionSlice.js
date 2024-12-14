@@ -1,13 +1,17 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+const apiUrl = process.env.REACT_APP_API_URL;
 
 // Асинхронный экшен для удаления сервисного центра
 export const deleteServiceCenter = createAsyncThunk(
 	"serviceDeletionSlice/deleteServiceCenter",
 	async (id, { rejectWithValue }) => {
 		try {
-			const response = await fetch(`/service-centers/delete-by-id/${id}`, {
-				method: 'DELETE',
-			});
+			const response = await fetch(
+				`${apiUrl}/service-centers/delete-by-id/${id}`,
+				{
+					method: 'DELETE',
+				}
+			);
 			if (!response.ok) {
 				throw new Error("Ошибка при удалении сервисного центра");
 			}

@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+const apiUrl = process.env.REACT_APP_API_URL;
 
 // Асинхронное действие для получения всех запасных частей
 export const fetchSpareParts = createAsyncThunk(
@@ -15,7 +16,7 @@ export const fetchSpareParts = createAsyncThunk(
 		};
 
 		try {
-			const response = await fetch('/spare-part/get-all', requestOptions);
+			const response = await fetch(`${apiUrl}/spare-part/get-all`, requestOptions);
 
 			if (!response.ok) {
 				throw new Error('Failed to fetch spare parts');

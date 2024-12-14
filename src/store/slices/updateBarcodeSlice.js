@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+const apiUrl = process.env.REACT_APP_API_URL;
 
 // Асинхронный экшен для обновления штрих-кода
 export const updateBarcode = createAsyncThunk(
@@ -21,7 +22,7 @@ export const updateBarcode = createAsyncThunk(
 			};
 
 			const response = await fetch(
-				`/bonus-program/update-barcode/${id}`,
+				`${apiUrl}/bonus-program/update-barcode/${id}`,
 				requestOptions
 			);
 

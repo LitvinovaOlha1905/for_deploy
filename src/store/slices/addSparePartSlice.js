@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+const apiUrl = process.env.REACT_APP_API_URL;
 
 // Асинхронное действие для добавления новой запчасти
 export const addSparePart = createAsyncThunk(
@@ -22,7 +23,7 @@ export const addSparePart = createAsyncThunk(
 		};
 
 		try {
-			const response = await fetch('/spare-part/add', requestOptions);
+			const response = await fetch(`${apiUrl}/spare-part/add`, requestOptions);
 
 			if (!response.ok) {
 				throw new Error('Failed to add spare part');

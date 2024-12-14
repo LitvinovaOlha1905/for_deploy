@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+const apiUrl = process.env.REACT_APP_API_URL;
 
 // Создаем async thunk для фетч-запроса
 export const fetchErrorscode = createAsyncThunk(
@@ -10,7 +11,7 @@ export const fetchErrorscode = createAsyncThunk(
 		};
 
 		try {
-			const response = await fetch('/error/get-all', requestOptions);
+			const response = await fetch(`${apiUrl}/error/get-all`, requestOptions);
 			if (!response.ok) {
 				throw new Error('Ошибка сети');
 			}

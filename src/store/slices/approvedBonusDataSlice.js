@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+const apiUrl = process.env.REACT_APP_API_URL;
 
 const initialState = {
 	data: [],
@@ -17,7 +18,7 @@ export const fetchApprovedBonusRequests = createAsyncThunk(
 
 		try {
 			const response = await fetch(
-				'/bonus-program/get-all-bonus-requests-by-parameter?requestStatus=APPROVED',
+				`${apiUrl}/bonus-program/get-all-bonus-requests-by-parameter?requestStatus=APPROVED`,
 				requestOptions
 			);
 

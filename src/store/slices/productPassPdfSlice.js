@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+const apiUrl = process.env.REACT_APP_API_URL;
 
 // Thunk для загрузки PDF-файла
 export const uploadProductPassPdf = createAsyncThunk(
@@ -20,7 +21,7 @@ export const uploadProductPassPdf = createAsyncThunk(
 
 		try {
 			const response = await fetch(
-				'/boiler-series-passport/add',
+				`${apiUrl}/boiler-series-passport/add`,
 				requestOptions
 			);
 

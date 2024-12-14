@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+const apiUrl = process.env.REACT_APP_API_URL;
 
 // Асинхронное действие для получения данных
 export const fetchBoilerSeriesPassports = createAsyncThunk(
@@ -16,7 +17,7 @@ export const fetchBoilerSeriesPassports = createAsyncThunk(
 
 		try {
 			const response = await fetch(
-				'/boiler-series-passport/get-all',
+				`${apiUrl}/boiler-series-passport/get-all`,
 				requestOptions
 			);
 

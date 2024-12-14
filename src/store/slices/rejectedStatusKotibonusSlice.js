@@ -1,4 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+const apiUrl = process.env.REACT_APP_API_URL;
+
 
 export const rejectedStatusKotibonus = createAsyncThunk(
 	'rejectedStatusKotibonus/reject',
@@ -9,7 +11,7 @@ export const rejectedStatusKotibonus = createAsyncThunk(
 		myHeaders.append('Accept', '*/*');
 		myHeaders.append('Authorization', `Bearer ${bearerToken}`);
 
-		const url = `/bonus-program/updateStatus?requestId=${requestId}&status=REJECTED&rejectionMessage=${encodeURIComponent(
+		const url = `${apiUrl}/bonus-program/updateStatus?requestId=${requestId}&status=REJECTED&rejectionMessage=${encodeURIComponent(
 			rejectionMessage || ''
 		)}`;
 

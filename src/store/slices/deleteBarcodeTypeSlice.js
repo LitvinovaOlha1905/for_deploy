@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+const apiUrl = process.env.REACT_APP_API_URL;
 
 // Асинхронное действие для удаления barcode type по ID
 export const deleteBarcodeType = createAsyncThunk(
@@ -10,7 +11,7 @@ export const deleteBarcodeType = createAsyncThunk(
 		};
 		try {
 			const response = await fetch(
-				`/bonus-program/delete-barcode-type/${id}`,
+				`${apiUrl}/bonus-program/delete-barcode-type/${id}`,
 				requestOptions
 			);
 			if (!response.ok) {

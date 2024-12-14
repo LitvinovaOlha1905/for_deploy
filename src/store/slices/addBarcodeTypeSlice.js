@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+const apiUrl = process.env.REACT_APP_API_URL;
 
 const initialState = {
 	barcodeTypes: [],
@@ -21,7 +22,10 @@ export const addBarcodeType = createAsyncThunk(
 				redirect: 'follow',
 			};
 
-			const response = await fetch('/bonus-program/add-barcode-type', requestOptions);
+			const response = await fetch(
+				`${apiUrl}/bonus-program/add-barcode-type`,
+				requestOptions
+			);
 
 			if (!response.ok) {
 				throw new Error('Failed to add barcode type');

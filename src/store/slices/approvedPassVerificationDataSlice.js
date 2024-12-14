@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+const apiUrl = process.env.REACT_APP_API_URL;
 
 // Начальное состояние
 const initialState = {
@@ -29,7 +30,7 @@ export const fetchApprovedPassVerificationData = createAsyncThunk(
 
 		try {
 			const response = await fetch(
-				'/bonus-program/get-all-document-verifications-request-by-parameter?requestStatus=APPROVED',
+				`${apiUrl}/bonus-program/get-all-document-verifications-request-by-parameter?requestStatus=APPROVED`,
 				requestOptions
 			);
 

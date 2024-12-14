@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+const apiUrl = process.env.REACT_APP_API_URL;
 
 export const sendMessage = createAsyncThunk(
 	'messages/sendMessage',
@@ -18,7 +19,7 @@ export const sendMessage = createAsyncThunk(
 
 		try {
 			const response = await fetch(
-				`/messages/send?senderId=${senderId}&receiverId=${receiverId}&messageContent=${encodeURIComponent(
+				`${apiUrl}/messages/send?senderId=${senderId}&receiverId=${receiverId}&messageContent=${encodeURIComponent(
 					messageContent
 				)}`,
 				requestOptions

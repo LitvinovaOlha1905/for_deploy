@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+const apiUrl = process.env.REACT_APP_API_URL;
 
 // Асинхронное действие для одобрения верификации
 export const approveVerificationStatus = createAsyncThunk(
@@ -12,7 +13,7 @@ export const approveVerificationStatus = createAsyncThunk(
 		myHeaders.append('Accept', '*/*');
 		myHeaders.append('Authorization', `Bearer ${bearerToken}`);
 
-		const url = `/bonus-program/updateDocumentVerificationStatus?documentVerificationId=${documentVerificationId}&status=APPROVED&rejectionMessage=${encodeURIComponent(
+		const url = `${apiUrl}/bonus-program/updateDocumentVerificationStatus?documentVerificationId=${documentVerificationId}&status=APPROVED&rejectionMessage=${encodeURIComponent(
 			rejectionMessage || ''
 		)}`;
 

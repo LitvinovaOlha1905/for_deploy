@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+const apiUrl = process.env.REACT_APP_API_URL;
 
 export const approvedStatusKotibonus = createAsyncThunk(
 	'approvedStatusKotibonus/approve',
@@ -7,7 +8,7 @@ export const approvedStatusKotibonus = createAsyncThunk(
 			throw new Error('Bearer token is missing');
 		}
 
-		const url = `/bonus-program/updateStatus?requestId=${requestId}&status=APPROVED&rejectionMessage=${encodeURIComponent(
+		const url = `${apiUrl}/bonus-program/updateStatus?requestId=${requestId}&status=APPROVED&rejectionMessage=${encodeURIComponent(
 			rejectionMessage || ''
 		)}`;
 

@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+const apiUrl = process.env.REACT_APP_API_URL;
 
 // Асинхронное действие для обновления запчасти по ID
 export const updateSparePartById = createAsyncThunk(
@@ -23,7 +24,7 @@ export const updateSparePartById = createAsyncThunk(
 
 		try {
 			const response = await fetch(
-				`/spare-part/update-by-id/${id}`,
+				`${apiUrl}/spare-part/update-by-id/${id}`,
 				requestOptions
 			);
 
