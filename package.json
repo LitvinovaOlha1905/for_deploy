@@ -59,14 +59,13 @@
 		"tailwindcss": "^3.0.2",
 		"terser-webpack-plugin": "^5.2.5",
 		"web-vitals": "^2.1.4",
-		"webpack": "^5.64.4",
 		"webpack-dev-server": "^4.6.0",
 		"webpack-manifest-plugin": "^4.0.2",
 		"workbox-webpack-plugin": "^6.4.1"
 	},
 	"scripts": {
 		"start": "node scripts/start.js",
-		"build": "NODE_ENV=production webpack --config webpack.config.js",
+		"build": "cross-env NODE_ENV=production webpack --config webpack.config.jsnpm install --save-dev webpack webpack-cli cross-env",
 		"test": "node scripts/test.js"
 	},
 	"eslintConfig": {
@@ -140,5 +139,10 @@
 		"presets": [
 			"react-app"
 		]
+	},
+	"devDependencies": {
+		"cross-env": "^7.0.3",
+		"webpack": "^5.97.1",
+		"webpack-cli": "^5.1.4"
 	}
 }
