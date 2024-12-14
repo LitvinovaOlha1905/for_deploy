@@ -65,7 +65,7 @@
 	},
 	"scripts": {
 		"start": "node scripts/start.js",
-		"build": "cross-env NODE_ENV=production webpack --config webpack.config.jsnpm install --save-dev webpack webpack-cli cross-env",
+		"build": "cross-env NODE_ENV=production webpack --config config/webpack.config.js",
 		"test": "node scripts/test.js"
 	},
 	"eslintConfig": {
